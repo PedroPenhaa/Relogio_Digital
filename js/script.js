@@ -93,7 +93,22 @@ var options = {
     day: 'numeric'
 }
 
-c//onsole.log(teste.toLocaleString('pt-BR'))
-console.log(teste.toLocaleString('pt-BR', options))
+//console.log(teste.toLocaleString('pt-BR'))
+//console.log(teste.toLocaleString('pt-BR', options))
 //console.log(teste.toLocaleDateString('pt-BR'))
 //console.log(teste.toLocaleTimeString('pt-BR'))
+
+function getUserPosition(){
+    let url = ''
+    navigator.geolocation.getCurrentPosition(
+        (pos) => {
+            let lat = pos.coords.latitude
+            let long = pos.coords.longitude
+            url = 'https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial& APPID=622296cd4fda08b69c46ccfa980f968d'
+            fetchApi(url)
+            console.log(url)
+        }
+    )
+}
+
+getUserPosition()
