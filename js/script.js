@@ -29,6 +29,12 @@ function moveRelogio(){
     if(strMinuto.length == 1) minuto = "0" + minuto
     if(strSegundo.length == 1) segundo = "0" + segundo
 
+    h.textContent = hora
+    m.textContent = minuto
+    s.textContent = segundo
 
+    hSmart.textContent = hora
+    mSmart.textContent = minuto
+    sSmart.textContent = segundo
 
 }
