@@ -12,3 +12,23 @@ let data = document.querySelector('#data')
 let semana = document.querySelector('#semana')
 
 let dataHora = new Date()
+console.log(dataHora)
+
+function moveRelogio(){
+    let momentoAtual = new Date()
+
+    let hora = momentoAtual.getHours()
+    let minuto = momentoAtual.getMinutes()
+    let segundo = momentoAtual.getSeconds()
+
+    let strHora = new String(hora)
+    let strMinuto = new String(minuto)
+    let strSegundo = new String(segundo)
+
+    if(strHora.length == 1) hora = "0" + hora
+    if(strMinuto.length == 1) minuto = "0" + minuto
+    if(strSegundo.length == 1) segundo = "0" + segundo
+
+
+
+}
