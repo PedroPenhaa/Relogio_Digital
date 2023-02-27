@@ -83,6 +83,17 @@ function pegarData(){
     data.textContent = dataAtual
 }
 
-
 //Evocar a função
 pegarData()
+
+var options = {
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+}
+
+c//onsole.log(teste.toLocaleString('pt-BR'))
+console.log(teste.toLocaleString('pt-BR', options))
+//console.log(teste.toLocaleDateString('pt-BR'))
+//console.log(teste.toLocaleTimeString('pt-BR'))
