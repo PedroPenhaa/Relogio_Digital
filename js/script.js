@@ -12,7 +12,8 @@ let data = document.querySelector('#data')
 let semana = document.querySelector('#semana')
 
 let dataHora = new Date()
-console.log(dataHora)
+
+
 
 function moveRelogio(){
     let momentoAtual = new Date()
@@ -37,4 +38,51 @@ function moveRelogio(){
     mSmart.textContent = minuto
     sSmart.textContent = segundo
 
+    setTimeout("moveRelogio()", 1000)
 }
+
+function pegarData(){
+    let diaDaSemana = dataHora.getDay()
+    let dia = dataHora.getDate()
+    let mes = dataHora.getMonth()+1
+    let ano = dataHora.getFullYear()
+
+    let strDia = new String(dia)
+    let strMes = new String(mes)
+
+    if(strDia.length == 1) mes = '0' + dia
+    if(strMes.length == 1) mes = '0' + mes
+
+    switch(diaDaSemana){
+        case 0:
+            diaDaSemana = 'DOM'
+            break;
+        case 1:
+            diaDaSemana = 'SEG'
+            break;
+        case 2:
+            diaDaSemana = 'TER'
+            break;
+        case 3:
+            diaDaSemana = 'QUA'
+            break;
+        case 4:
+            diaDaSemana = 'QUI'
+            break;
+        case 5:
+            diaDaSemana = 'SEX'
+            break;
+        case 6:
+            diaDaSemana = 'SÁB'
+            break;
+    }
+
+    let dataAtual = dia + '/' + mes + '/' + ano
+
+    semana.textContent = diaDaSemana
+    data.textContent = dataAtual
+}
+
+
+//Evocar a função
+pegarData()
