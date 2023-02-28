@@ -104,11 +104,37 @@ function getUserPosition(){
         (pos) => {
             let lat = pos.coords.latitude
             let long = pos.coords.longitude
-            url = 'https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial& APPID=622296cd4fda08b69c46ccfa980f968d'
+
+
+            console.log(lat + '/    ' + long)
+            url = `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={long}&appid={a9db73e9869fdd1a23fa9939a0a5d18a}`
             fetchApi(url)
-            console.log(url)
+          console.log(url)
         }
     )
 }
 
-getUserPosition()
+function fetchApi(url){
+    let city = document.querySelector('.city')
+    let temperature = document.querySelector('#temp')
+    let humidity = document.querySelector('#umidad')
+
+    fetch(url)
+    .then((data) => {
+        return data.json()
+    })
+    .then((data) => {
+        let tempInCelsius = ((5/9) * (data.main.temp-32)).toFixed(1);
+
+        city.textContent = data.name
+        temperature.innerHTML = tempInCelsius
+        humidity.innerHTML = data.main
+        humidity    
+    })
+    .catch((err) => {
+        city.innerText = 'Impossível acessar o OpenWeather. Verifique a sua conexão.';
+        temperature.innerHTML = '-';
+    })
+}
+
+getUserPosition();
