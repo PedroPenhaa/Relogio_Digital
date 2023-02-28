@@ -105,7 +105,7 @@ function getUserPosition(){
             let lat = pos.coords.latitude
             let long = pos.coords.longitude
 
-            url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid={a9db73e9869fdd1a23fa9939a0a5d18a}`
+            url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=a9db73e9869fdd1a23fa9939a0a5d18a`
             fetchApi(url)
           console.log(url)
         }
@@ -128,8 +128,7 @@ function fetchApi(url){
       
         city.textContent = data.name
         temperature.innerHTML = tempInCelsius
-        humidity.innerHTML = data.main
-        humidity    
+        humidity.innerHTML = data.main.humidity    
     })
     .catch((err) => {
         console.log(data.name)
