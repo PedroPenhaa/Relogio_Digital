@@ -105,7 +105,7 @@ function getUserPosition(){
             let lat = pos.coords.latitude
             let long = pos.coords.longitude
 
-            url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid={a9db73e9869fdd1a23fa9939a0a5d18a}`
+            url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid={a9db73e9869fdd1a23fa9939a0a5d18a}`
             fetchApi(url)
           console.log(url)
         }
@@ -125,13 +125,14 @@ function fetchApi(url){
         let tempInCelsius = ((5/9) * (data.main.temp-32)).toFixed(1);
 
 
-        console.log(data.name)
+      
         city.textContent = data.name
         temperature.innerHTML = tempInCelsius
         humidity.innerHTML = data.main
         humidity    
     })
     .catch((err) => {
+        console.log(data.name)
         city.innerText = 'Impossível acessar o OpenWeather. Verifique a sua conexão.';
         temperature.innerHTML = '-';
     })
