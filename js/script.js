@@ -45,9 +45,10 @@ function pegarData(){
     let strDia = new String(dia)
     let strMes = new String(mes)
 
-    if(strDia.length == 1) mes = '0' + dia
+    if(strDia.length == 1) dia = '0' + dia
+    /*
     if(strMes.length == 1) mes = '0' + mes
-
+    */
     switch(diaDaSemana){
         case 0:
             diaDaSemana = 'DOM'
