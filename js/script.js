@@ -3,17 +3,12 @@ let relogio = document.querySelector('#relogio')
 let h = document.querySelector('#h')
 let m = document.querySelector('#m')
 let s = document.querySelector('#s')
-
 let hSmart = document.querySelector('#hSmart')
 let mSmart = document.querySelector('#mSmart')
 let sSmart = document.querySelector('#sSmart')
-
 let data = document.querySelector('#data')
 let semana = document.querySelector('#semana')
-
 let dataHora = new Date()
-
-
 
 function moveRelogio(){
     let momentoAtual = new Date()
@@ -92,7 +87,6 @@ var options = {
     month: 'long',
     day: 'numeric'
 }
-
 //console.log(teste.toLocaleString('pt-BR'))
 //console.log(teste.toLocaleString('pt-BR', options))
 //console.log(teste.toLocaleDateString('pt-BR'))
@@ -105,6 +99,8 @@ function getUserPosition(){
             let lat = pos.coords.latitude
             let long = pos.coords.longitude
 
+          
+
             url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=imperial&appid=a9db73e9869fdd1a23fa9939a0a5d18a`
             fetchApi(url)
           console.log(url)
@@ -113,6 +109,7 @@ function getUserPosition(){
 }
 
 function fetchApi(url){
+   
     let city = document.querySelector('.city')
     let temperature = document.querySelector('#temp')
     let humidity = document.querySelector('#umidad')
@@ -124,8 +121,6 @@ function fetchApi(url){
     .then((data) => {
         let tempInCelsius = ((5/9) * (data.main.temp-32)).toFixed(1);
 
-
-      
         city.textContent = data.name
         temperature.innerHTML = tempInCelsius
         humidity.innerHTML = data.main.humidity    
